@@ -29,16 +29,19 @@ module.exports = function(grunt) {
 		concat : {
 			dist : {
 				src  : [
+					'src/js/first.js',
 					'src/js/lib/Engine.js',
 					'src/js/assets.js',
 
 					'src/js/lib/sonantx.js',
 					'src/js/lib/stats.js',
 					'src/js/lib/input.js',
+					'src/js/lib/text.js',
 
 					'src/js/gamestate.js',
 
 					'src/js/main.js',
+					'src/js/last.js'
 				],
 				dest : 'build/concat.js'
 			}
@@ -69,7 +72,7 @@ module.exports = function(grunt) {
 			},
 			compressed: {
 				options: {
-					mangle: false,
+					mangle: true,
 					compress: {
 						//TODO: Optimize using compressor options (https://github.com/mishoo/UglifyJS2#compressor-options)
 						dead_code: true,
@@ -80,7 +83,7 @@ module.exports = function(grunt) {
 						loops: true,
 						unused: true,
 						//screw_ie8: true,
-						hoist_funs: false,
+						hoist_funs: true,
 						unsafe: true,
 						unsafe_comps: true,
 						conditionals: true,

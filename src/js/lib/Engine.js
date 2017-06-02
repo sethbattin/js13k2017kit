@@ -25,7 +25,7 @@ ENGINE = {
         0xffff9b63, 0xffe4cd5f, 0xfffcdbcb, 0xffffffff, 0xffb7ad9b, 0xff877e84, 0xff6a6a69, 0xff525659, 0xff8a4276,
         0xff3232ac, 0xff6357d9, 0xffba7bd7, 0xff4a978f, 0xff306f8a],
 
-    brightness: [0,1,2,14,3,15,13,27,26,25,16,4,12,24,31,28,17,23,11,5,30,29,18,6,10,22,19,7,9,20,8,21],
+//    brightness: [0,1,2,14,3,15,13,27,26,25,16,4,12,24,31,28,17,23,11,5,30,29,18,6,10,22,19,7,9,20,8,21],
 
     palDefault: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31],
 
@@ -75,22 +75,22 @@ ENGINE = {
 
     playSound: function(buffer, playbackRate, pan, loop) {
 
-    var source = audioCtx.createBufferSource();
-    var gainNode = audioCtx.createGain();
-    var panNode = audioCtx.createStereoPanner();
+      var source = audioCtx.createBufferSource();
+      var gainNode = audioCtx.createGain();
+      var panNode = audioCtx.createStereoPanner();
 
-    source.buffer = buffer;
-    source.connect(panNode);
-    panNode.connect(gainNode);
-    gainNode.connect(audioCtx.destination);
+      source.buffer = buffer;
+      source.connect(panNode);
+      panNode.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
 
-    //gainNode.connect(audioCtx.destination);
-    source.playbackRate.value = playbackRate;
-    source.loop = loop;
-    gainNode.gain.value = 1;
-    panNode.pan.value = pan;
-    source.start();
-    return {volume: gainNode, sound: source};
+      //gainNode.connect(audioCtx.destination);
+      source.playbackRate.value = playbackRate;
+      source.loop = loop;
+      gainNode.gain.value = 1;
+      panNode.pan.value = pan;
+      source.start();
+      return {volume: gainNode, sound: source};
   },
 
     gfx: {
@@ -424,7 +424,7 @@ ENGINE = {
         }
     },
 
-    UIObject: {
+/*    UIObject: {
         intersects: function(obj, mouse) {
             var t = 5; //tolerance
             var xIntersect = (mouse.x + t) > obj.x && (mouse.x - t) < obj.x + obj.width;
@@ -502,7 +502,7 @@ ENGINE = {
         //var ramcapture = tmpcanvas.toDataURL("image/png");
         //window.open(ramcapture);
 
-    },
+    }, */
 
     canvasInit: function () {
 
